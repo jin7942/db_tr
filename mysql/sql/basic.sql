@@ -1,12 +1,16 @@
+-- ohmygirl database 사용 선언
 use ohmygirl;
 
-CREATE TABLE IF NOT EXISTS `ohmygirl`.`member2` (
-  `seq` INT NOT NULL AUTO_INCREMENT,
-  `id` VARCHAR(45) NULL,
-  `pw` INT NULL,
-  `name` VARCHAR(45) NULL,
-  `eamil` VARCHAR(45) NULL,
-  PRIMARY KEY (`seq`))
-ENGINE = InnoDB
-COMMENT = '			'
-;
+-- 전체 컬럼 조회
+SELECT * FROM member2;
+
+-- 컬럼 추가
+ALTER TABLE member2 ADD COLUMN nickname varchar(45);
+
+ALTER TABLE member2 ADD COLUMN nameEng varchar(45) AFTER name;
+
+-- 컬럼 변경
+ALTER TABLE member2 MODIFY COLUMN nickname varchar(100);
+
+-- 컬럼 이름 변경
+ALTER TABLE member CHANGE COLUMN nickname nick varchar(45);
