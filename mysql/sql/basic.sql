@@ -75,3 +75,8 @@ select * from member2
 where 1 = 1
 and name = ""
 ;
+
+select
+a.seq
+from member a;
+-- alias
