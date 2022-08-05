@@ -6,7 +6,7 @@ select
     ,b.seq
     ,b.name
 from codeGroup a
-inner join code b on a.seq = b.seq
+inner join code b on a.seq = b.codeGroup_seq
 ;
 
 -- 로그인
