@@ -104,3 +104,85 @@ inner join cart b on  a.seq = b.item_seq
 where 1=1
 and b.member_seq = 1
 ;
+
+-- 회원가입
+insert into member(
+	userID
+    ,userPW
+    ,userName
+    ,userEmail
+    ,domain
+    ,userMobile
+    ,userPlace
+    ,userSignDate
+    ,delNY
+)
+values (
+    "test"
+    ,"1234"
+    ,"김진범"
+    ,"infomer@naver.com"
+    ,5
+    ,01012341234
+    ,"수원시 팔달구 지동"
+    ,"2022-08-09"
+    ,0
+)
+;
+
+-- ID 중복 검사
+select
+    a.userID
+from member a
+where 1=1
+and userID = "?"
+;
+
+-- 비밀번호 찾기
+select
+    a.userPW
+from member a
+where 1=1
+and userName = "?"
+and userEmail = "?"
+;
+
+-- 아이디 찾기
+select
+    a.userID
+from member a
+where 1=1
+and userName = "?"
+and userPW = "?"
+and userEmail = "?"
+;
+
+-- 아이템 등록
+insert into item(
+    itemHead
+    ,itemPrice
+    ,itemDescription
+    ,itemPlace
+    ,itemRegDatetime
+    ,itemSaleNY
+    ,member_seq
+)
+values(
+    "유기농 사과 판매합니다"
+    ,30000
+    ,"무농약 산지직송 유기농 사과"
+    ,"수원시 팔달구 지동"
+    ,"2022-08-09 12:22:00"
+    ,1
+    ,3
+)
+;
+
+
+
+
+
+
+
+
+
