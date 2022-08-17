@@ -9,6 +9,33 @@ select
     ,b.itemPlace
     ,b.itemDescription
     ,b.member_seq
-from member a
+    ,(
+		select 
+			userComment 
+            ,userScore
+            ,member_seq
+		from userReview
+    )
+from member a 
 inner join item b on a.seq = b.seq
+order by member_seq asc
 ;
+
+select
+	a.itemPlace
+from item a
+union all
+select
+	b.userPlace
+from member b
+;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
