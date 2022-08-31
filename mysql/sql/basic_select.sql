@@ -1,5 +1,4 @@
 use ohmygirl;
-
 select
 	a.seq
     ,a.userName
