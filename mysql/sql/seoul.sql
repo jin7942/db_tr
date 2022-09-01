@@ -1,5 +1,14 @@
 use ohmygirl;
 
+		select
+			a.seq 
+		    ,a.name
+            ,(select count(aa.seq) from code aa where 1=1 and aa.seq = a.seq)
+		from codeGroup a
+		inner join code b on a.seq = b.codeGroup_seq
+        ;
+			
+
 -- 공통코드
 
 select
@@ -10,6 +19,9 @@ select
 from codeGroup a
 inner join code b on a.seq = b.codeGroup_seq
 ;
+
+select * from code;
+select * from codeGroup;
 
 -- 로그인
 select 
