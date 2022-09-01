@@ -1,24 +1,24 @@
 use ohmygirl;
 
-		select
-			a.seq 
-		    ,a.name
-            ,(select count(aa.seq) from code aa where 1=1 and aa.seq = a.seq)
-		from codeGroup a
-		inner join code b on a.seq = b.codeGroup_seq
-        ;
+select DISTINCT
+	a.seq
+    ,a.name
+    ,(select count(bb.codeGroup_seq) from code bb where bb.codeGroup_seq = a.seq) as sum
+from codeGroup a
+inner join code b on a.seq = b.codeGroup_seq
+;
 			
 
 -- 공통코드
 
-select
-	a.seq
-    ,a.name
-    ,b.seq
-    ,b.name
-from codeGroup a
-inner join code b on a.seq = b.codeGroup_seq
-;
+		SELECT
+			a.seq 
+		    ,a.name 
+		    ,b.seq 
+		    ,b.name
+            ,b.codeGroup_seq
+		FROM codeGroup a
+		INNER JOIN code b on a.seq = b.codeGroup_seq;
 
 select * from code;
 select * from codeGroup;
