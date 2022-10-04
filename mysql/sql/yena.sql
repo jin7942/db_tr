@@ -1,22 +1,46 @@
-use yena;
+use ohmygirl;
 
-select count(*) from member;
+CREATE TABLE IF NOT EXISTS `ohmygirl`.`memberProfileUpload` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `type` TINYINT NULL,
+  `defaultNY` INT NULL,
+  `sort` TINYINT NULL,
+  `orginalName` VARCHAR(45) NULL,
+  `uuidName` VARCHAR(45) NULL,
+  `ext` VARCHAR(45) NULL,
+  `size` INT NULL,
+  `delNY` TINYINT NOT NULL,
+  `pseq` INT NOT NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+;
 
-select * from member;
+CREATE TABLE IF NOT EXISTS `ohmygirl`.`itemUpload` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `type` TINYINT NULL,
+  `defaultNY` INT NULL,
+  `sort` TINYINT NULL,
+  `orginalName` VARCHAR(45) NULL,
+  `uuidName` VARCHAR(45) NULL,
+  `ext` VARCHAR(45) NULL,
+  `size` INT NULL,
+  `delNY` TINYINT NOT NULL,
+  `pseq` INT NOT NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+;
 
-CREATE TABLE IF NOT EXISTS `yena`.`infrCommonCode` (
-  `ifccSeq` INT NOT NULL AUTO_INCREMENT,
-  `ifccNameEng` VARCHAR(45) NULL,
-  `ifccNameKor` VARCHAR(45) NULL,
-  `ifccUseNY` TINYINT NULL,
-  `ifccDelNY` TINYINT NULL,
-  `ifccDescription` VARCHAR(45) NULL,
-  `infrCodeGroup_ifcgSeq` INT NOT NULL,
-  PRIMARY KEY (`ifccSeq`),
-  INDEX `fk_infrCommonCode_infrCodeGroup1_idx` (`infrCodeGroup_ifcgSeq` ASC) VISIBLE,
-  CONSTRAINT `fk_infrCommonCode_infrCodeGroup1`
-    FOREIGN KEY (`infrCodeGroup_ifcgSeq`)
-    REFERENCES `yena`.`infrCodeGroup` (`ifcgSeq`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+select * from memberProfileUpload;
+
+select * from itemUpload;
+
+use ohmygirl;
+
+select * from codeGroup;
+
+delete from codeGroup where seq = 9;
+
+select * from code;
+
+ALTER TABLE code MODIFY CodeGroup_seq INT NULL;
+
